@@ -1,0 +1,16 @@
+{
+	"FileVersion": 3,
+	"EngineAssociation": "{7F557FE7-4290-2AA5-B1C1-5C8080672656}",
+	"Category": "",
+	"Description": "",
+	"Modules": [
+		{
+			"Name": "ReLoginProject",
+			"Type": "Runtime",
+			"LoadingPhase": "Default",
+			"AdditionalDependencies": [
+				"Engine"
+			]
+		}
+	]
+}

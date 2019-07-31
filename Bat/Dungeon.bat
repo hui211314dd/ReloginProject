@@ -1,0 +1,1 @@
+start UE4Editor.exe "%CD%\..\ReLoginProject.uproject" -server -log -stdout
