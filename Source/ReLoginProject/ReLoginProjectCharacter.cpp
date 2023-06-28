@@ -18,8 +18,8 @@ AReLoginProjectCharacter::AReLoginProjectCharacter()
 	GetCapsuleComponent()->InitCapsuleSize(42.f, 96.0f);
 
 	// set our turn rates for input
-	BaseTurnRate = 45.f;
-	BaseLookUpRate = 45.f;
+	BaseTurnRate = 40.f;
+	BaseLookUpRate = 40.f;
 
 	// Don't rotate when the controller rotates. Let that just affect the camera.
 	bUseControllerRotationPitch = false;
@@ -29,7 +29,7 @@ AReLoginProjectCharacter::AReLoginProjectCharacter()
 	// Configure character movement
 	GetCharacterMovement()->bOrientRotationToMovement = true; // Character moves in the direction of input...	
 	GetCharacterMovement()->RotationRate = FRotator(0.0f, 540.0f, 0.0f); // ...at this rotation rate
-	GetCharacterMovement()->JumpZVelocity = 600.f;
+	GetCharacterMovement()->JumpZVelocity = 500.f;
 	GetCharacterMovement()->AirControl = 0.2f;
 
 	// Create a camera boom (pulls in towards the player if there is a collision)
@@ -71,15 +71,6 @@ void AReLoginProjectCharacter::SetupPlayerInputComponent(class UInputComponent* 
 	// handle touch devices
 	PlayerInputComponent->BindTouch(IE_Pressed, this, &AReLoginProjectCharacter::TouchStarted);
 	PlayerInputComponent->BindTouch(IE_Released, this, &AReLoginProjectCharacter::TouchStopped);
-
-	// VR headset functionality
-	PlayerInputComponent->BindAction("ResetVR", IE_Pressed, this, &AReLoginProjectCharacter::OnResetVR);
-}
-
-
-void AReLoginProjectCharacter::OnResetVR()
-{
-	UHeadMountedDisplayFunctionLibrary::ResetOrientationAndPosition();
 }
 
 void AReLoginProjectCharacter::TouchStarted(ETouchIndex::Type FingerIndex, FVector Location)
